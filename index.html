@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> 피클볼 스코어 트래커 (공유)</title>
+    <title> 송도 피클볼 (공유)</title>
     
     <!-- Chart.js 라이브러리 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -66,10 +66,10 @@
         }
 
         .header {
-            background: white;
+            background: linear-gradient(135deg, #8B0000 0%, #8B4513 50%, #A0522D 100%);
             padding: 4px 10px;
             border-radius: 12px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(139, 69, 19, 0.4);
             margin-bottom: 6px;
             display: flex;
             align-items: center;
@@ -121,10 +121,11 @@
         .header h1 {
             font-size: 16px;
             font-weight: 700;
-            color: #1f2937;
+            color: white;
             margin-bottom: 0;
             text-align: center;
             flex: 1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .header p {
@@ -257,7 +258,7 @@
         .members-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 3px;
+            gap: 4px;
             margin-bottom: 6px;
         }
 
@@ -275,7 +276,7 @@
 
         .member-card {
             background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-            padding: 4px 2px;
+            padding: 6px 4px;
             border-radius: 12px;
             text-align: center;
             font-size: 11px;
@@ -297,7 +298,7 @@
 
         .member-name-large-game {
             font-weight: 700;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             font-size: 13px;
             line-height: 1.2;
             text-align: center;
@@ -343,7 +344,7 @@
             }
             
             .member-card {
-                padding: 3px 1px;
+                padding: 4px 2px;
             }
             
             .member-stats {
@@ -366,7 +367,8 @@
             display: flex;
             gap: 1px;
             justify-content: center;
-            margin-top: 2px;
+            margin-top: 4px;
+            margin-bottom: 0;
         }
         
         .form-indicator {
@@ -2701,7 +2703,7 @@
                     <div class="header">
                 <div class="header-left">
                     <img src="CI.png" alt="피클볼 로고" class="header-logo">
-                    <h1>피클볼 스코어 트래커<span class="title-emoji">🎾</span></h1>
+                    <h1>송도 피클볼<span class="title-emoji">🎾</span></h1>
                 </div>
                 <div class="header-right">
                     <div class="version-info">v1.1.0</div>
@@ -2720,10 +2722,6 @@
          <div id="game-page" class="page active">
                                           <div class="section">
 
-                                     <div class="button-group">
-                       <button class="btn btn-secondary" onclick="randomizeTeams()" style="flex: 0.5;">🎲 랜덤 팀 선택</button>
-                       <button class="btn btn-secondary" onclick="clearTeamSelection()" style="flex: 0.5;">❌ 선택 해제</button>
-                   </div>
                   <div class="groups-container">
                                              <div class="group-section">
                            <h4>Group A (2명 선택)</h4>
