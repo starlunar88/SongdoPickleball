@@ -713,21 +713,28 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 12px;
             margin-bottom: 12px;
             width: 100%;
+        }
+
+        .score-input-group {
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
 
         .score-input input {
             flex: 1;
             text-align: center;
-            font-size: 14px;
+            font-size: 24px;
             font-weight: 600;
-            padding: 8px;
+            padding: 16px 8px;
             border: 2px solid #e5e7eb;
-            border-radius: 6px;
+            border-radius: 8px;
             transition: border-color 0.2s;
             min-width: 0;
+            width: 100px;
         }
 
         .score-input input:focus {
@@ -735,8 +742,35 @@
             border-color: #3b82f6;
         }
 
+        .score-arrow-btn {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+        }
+
+        .score-arrow-btn:hover {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+        }
+
+        .score-arrow-btn:active {
+            transform: scale(0.95);
+        }
+
         .score-input span {
-            font-size: 14px;
+            font-size: 24px;
             font-weight: 600;
             color: #374151;
         }
@@ -2756,9 +2790,17 @@
              <div class="section">
                  <h3 style="font-size: 14px; margin-bottom: 8px;">점수 입력</h3>
                                  <div class="score-input">
-                    <input type="number" id="score-a" placeholder="11" value="11" min="0" max="50" onclick="clearScoreInput(this)" onblur="restoreScoreInput(this)">
+                    <div class="score-input-group">
+                        <button class="score-arrow-btn" onclick="decreaseScore('score-a')" type="button">−</button>
+                        <input type="number" id="score-a" placeholder="11" value="11" min="0" max="50" onclick="clearScoreInput(this)" onblur="restoreScoreInput(this)">
+                        <button class="score-arrow-btn" onclick="increaseScore('score-a')" type="button">+</button>
+                    </div>
                     <span>-</span>
-                    <input type="number" id="score-b" placeholder="11" value="11" min="0" max="50" onclick="clearScoreInput(this)" onblur="restoreScoreInput(this)">
+                    <div class="score-input-group">
+                        <button class="score-arrow-btn" onclick="decreaseScore('score-b')" type="button">−</button>
+                        <input type="number" id="score-b" placeholder="11" value="11" min="0" max="50" onclick="clearScoreInput(this)" onblur="restoreScoreInput(this)">
+                        <button class="score-arrow-btn" onclick="increaseScore('score-b')" type="button">+</button>
+                    </div>
                 </div>
                  <button class="btn" onclick="recordGame()">경기 기록하기</button>
              </div>
@@ -4017,6 +4059,26 @@
         function restoreScoreInput(input) {
             if (input.value === '' || input.value === null) {
                 input.value = '11';
+            }
+        }
+
+        // 점수 증가 함수
+        function increaseScore(inputId) {
+            const input = document.getElementById(inputId);
+            let currentValue = parseInt(input.value) || 0;
+            const maxValue = parseInt(input.max) || 50;
+            if (currentValue < maxValue) {
+                input.value = currentValue + 1;
+            }
+        }
+
+        // 점수 감소 함수
+        function decreaseScore(inputId) {
+            const input = document.getElementById(inputId);
+            let currentValue = parseInt(input.value) || 0;
+            const minValue = parseInt(input.min) || 0;
+            if (currentValue > minValue) {
+                input.value = currentValue - 1;
             }
         }
 
