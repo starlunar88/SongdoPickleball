@@ -2792,13 +2792,13 @@
                                  <div class="score-input">
                     <div class="score-input-group">
                         <button class="score-arrow-btn" onclick="decreaseScore('score-a')" type="button">−</button>
-                        <input type="number" id="score-a" placeholder="11" value="11" min="0" max="50" onclick="clearScoreInput(this)" onblur="restoreScoreInput(this)">
+                        <input type="number" id="score-a" placeholder="11" value="11" min="0" max="11" onclick="clearScoreInput(this)" onblur="restoreScoreInput(this)">
                         <button class="score-arrow-btn" onclick="increaseScore('score-a')" type="button">+</button>
                     </div>
                     <span>-</span>
                     <div class="score-input-group">
                         <button class="score-arrow-btn" onclick="decreaseScore('score-b')" type="button">−</button>
-                        <input type="number" id="score-b" placeholder="11" value="11" min="0" max="50" onclick="clearScoreInput(this)" onblur="restoreScoreInput(this)">
+                        <input type="number" id="score-b" placeholder="11" value="11" min="0" max="11" onclick="clearScoreInput(this)" onblur="restoreScoreInput(this)">
                         <button class="score-arrow-btn" onclick="increaseScore('score-b')" type="button">+</button>
                     </div>
                 </div>
@@ -4066,7 +4066,7 @@
         function increaseScore(inputId) {
             const input = document.getElementById(inputId);
             let currentValue = parseInt(input.value) || 0;
-            const maxValue = parseInt(input.max) || 50;
+            const maxValue = 11; // 최대값 11점으로 제한
             if (currentValue < maxValue) {
                 input.value = currentValue + 1;
             }
